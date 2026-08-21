@@ -187,9 +187,9 @@ export function LeadForm({
   }
 
   return (
-    <div className="bg-[#fbfbf9] rounded-xl p-6 sm:p-7 border border-stone-200 shadow-xs">
+    <div className="bg-[#fbfbf9] rounded-xl p-4 sm:p-7 border border-stone-200 shadow-xs">
       {/* Header */}
-      <div className="mb-5 pb-3 border-b border-stone-200">
+      <div className="mb-4 sm:mb-5 pb-3 border-b border-stone-200">
         <h3 className="text-lg sm:text-xl font-bold text-stone-900">
           {title || "Request Product Quotation"}
         </h3>
@@ -219,7 +219,7 @@ export function LeadForm({
         />
 
         {/* Row 1: Name & Phone */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
           <div>
             <label htmlFor={nameId} className="block text-xs font-semibold text-stone-700 mb-1">
               Full Name <span className="text-[#1e4620]">*</span>
@@ -228,9 +228,9 @@ export function LeadForm({
               id={nameId}
               type="text"
               placeholder="e.g. Ramesh Patel"
-              className={`w-full px-3 py-2 text-sm rounded bg-white border ${
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
                 errors.name ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition`}
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
               {...register("name")}
             />
             {errors.name && (
@@ -246,9 +246,9 @@ export function LeadForm({
               id={phoneId}
               type="tel"
               placeholder="+91 98765 43210"
-              className={`w-full px-3 py-2 text-sm rounded bg-white border ${
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
                 errors.phone ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition`}
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
               {...register("phone")}
             />
             {errors.phone && (
@@ -258,7 +258,7 @@ export function LeadForm({
         </div>
 
         {/* Row 2: Email & Primary Crop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
           <div>
             <label htmlFor={emailId} className="block text-xs font-semibold text-stone-700 mb-1">
               Email Address <span className="text-[#1e4620]">*</span>
@@ -267,9 +267,9 @@ export function LeadForm({
               id={emailId}
               type="email"
               placeholder="farmer@email.com"
-              className={`w-full px-3 py-2 text-sm rounded bg-white border ${
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
                 errors.email ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition`}
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
               {...register("email")}
             />
             {errors.email && (
@@ -283,9 +283,9 @@ export function LeadForm({
             </label>
             <select
               id={cropId}
-              className={`w-full px-3 py-2 text-sm rounded bg-white border ${
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
                 errors.crop ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition`}
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
               {...register("crop")}
             >
               <option value="">Select Primary Crop</option>
@@ -302,7 +302,7 @@ export function LeadForm({
         </div>
 
         {/* Row 3: State & District */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
           <div>
             <label htmlFor={stateId} className="block text-xs font-semibold text-stone-700 mb-1">
               State <span className="text-[#1e4620]">*</span>
@@ -311,9 +311,9 @@ export function LeadForm({
               id={stateId}
               type="text"
               placeholder="e.g. Maharashtra / Gujarat"
-              className={`w-full px-3 py-2 text-sm rounded bg-white border ${
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
                 errors.state ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition`}
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
               {...register("state")}
             />
             {errors.state && (
@@ -329,9 +329,9 @@ export function LeadForm({
               id={districtId}
               type="text"
               placeholder="e.g. Nagpur / Vadodara"
-              className={`w-full px-3 py-2 text-sm rounded bg-white border ${
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
                 errors.district ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition`}
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
               {...register("district")}
             />
             {errors.district && (
@@ -347,9 +347,9 @@ export function LeadForm({
           </label>
           <select
             id={productId}
-            className={`w-full px-3 py-2 text-sm rounded bg-white border ${
+            className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
               errors.productId ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-            } focus:border-[#1e4620] focus:outline-none transition`}
+            } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
             {...register("productId")}
           >
             {availableProducts.map((p) => (
@@ -376,11 +376,11 @@ export function LeadForm({
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>
-                  <div className="text-xs">
-                    <span className="font-semibold text-stone-900 block line-clamp-1">
+                  <div className="text-xs min-w-0">
+                    <span className="font-semibold text-stone-900 block truncate">
                       {selectedProd.name}
                     </span>
-                    <span className="text-stone-500 text-[11px]">
+                    <span className="text-stone-500 text-[11px] truncate block">
                       {selectedProd.category} • {selectedProd.packagingSizes?.[0] || "50.00 Kg Bag"}
                     </span>
                   </div>
@@ -400,7 +400,7 @@ export function LeadForm({
             id={messageId}
             rows={2}
             placeholder="e.g. 20 acres of cotton, need basal dose advice and price quote for 40 bags."
-            className="w-full px-3 py-2 text-sm rounded bg-white border border-stone-300 focus:border-[#1e4620] focus:outline-none transition"
+            className="w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border border-stone-300 focus:border-[#1e4620] focus:outline-none transition min-h-[44px]"
             {...register("message")}
           />
         </div>
@@ -411,7 +411,7 @@ export function LeadForm({
             <input
               id={consentId}
               type="checkbox"
-              className="mt-0.5 w-4 h-4 text-[#1e4620] rounded border-stone-300 focus:ring-[#1e4620]"
+              className="mt-0.5 w-4 h-4 text-[#1e4620] rounded border-stone-300 focus:ring-[#1e4620] shrink-0"
               {...register("consent")}
             />
             <span className="text-xs text-stone-600 leading-snug">
@@ -427,7 +427,7 @@ export function LeadForm({
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-3 px-6 rounded font-semibold text-sm text-white bg-[#1e4620] hover:bg-[#153416] transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed shadow-xs"
+          className="w-full py-3.5 px-6 rounded font-semibold text-sm text-white bg-[#1e4620] hover:bg-[#153416] transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed shadow-xs min-h-[48px] active:scale-[0.99]"
         >
           {submitting ? (
             <>
@@ -443,12 +443,12 @@ export function LeadForm({
         </button>
 
         {/* Trust Footnote */}
-        <div className="flex items-center justify-center gap-4 text-[11px] text-stone-500 pt-1 border-t border-stone-200">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] text-stone-500 pt-1 border-t border-stone-200 text-center">
           <span className="flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#1e4620]" /> Direct Manufacturer Support
+            <ShieldCheck className="w-3.5 h-3.5 text-[#1e4620] shrink-0" /> Direct Manufacturer Support
           </span>
           <span className="flex items-center gap-1">
-            <Check className="w-3.5 h-3.5 text-[#1e4620]" /> ISO 9001:2015 Certified
+            <Check className="w-3.5 h-3.5 text-[#1e4620] shrink-0" /> ISO 9001:2015 Certified
           </span>
         </div>
       </form>

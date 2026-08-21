@@ -42,16 +42,16 @@ export function TrustSection() {
   ];
 
   return (
-    <section id="trust" className="py-14 bg-white text-stone-900 border-b border-stone-200">
+    <section id="trust" className="py-10 sm:py-14 bg-white text-stone-900 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-2">
           <span className="text-xs font-bold uppercase tracking-wider text-[#1e4620]">
-            Manufacturing Credibility & Science
+            Manufacturing Credibility &amp; Science
           </span>
           <h2 className="text-xl sm:text-2xl font-bold text-stone-900">
-            Trusted by Progressive Growers & Soil Scientists
+            Trusted by Progressive Growers &amp; Soil Scientists
           </h2>
           <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
             Backed by rigorous field trials and certified manufacturing at our Waghodia, Vadodara industrial facility.
@@ -59,33 +59,33 @@ export function TrustSection() {
         </div>
 
         {/* 4 Stats Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 mb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 mb-8 sm:mb-10">
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="p-4 rounded-lg bg-[#fbfbf9] border border-stone-200 text-center flex flex-col items-center justify-center space-y-1"
+              className="p-3 sm:p-4 rounded-lg bg-[#fbfbf9] border border-stone-200 text-center flex flex-col items-center justify-center space-y-1"
             >
-              <span className="text-2xl sm:text-3xl font-bold text-[#1e4620]">
+              <span className="text-lg sm:text-2xl lg:text-3xl font-bold text-[#1e4620]">
                 {stat.value}
               </span>
-              <span className="text-xs font-bold text-stone-900">
+              <span className="text-xs font-bold text-stone-900 leading-tight">
                 {stat.label}
               </span>
-              <span className="text-[11px] text-stone-500 font-medium">{stat.sub}</span>
+              <span className="text-[10px] sm:text-[11px] text-stone-500 font-medium">{stat.sub}</span>
             </div>
           ))}
         </div>
 
         {/* 4 Pillars Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="p-5 rounded-lg bg-[#fbfbf9] border border-stone-200 hover:border-[#1e4620] transition flex items-start space-x-3.5"
+                className="p-4 sm:p-5 rounded-lg bg-[#fbfbf9] border border-stone-200 hover:border-[#1e4620] transition flex items-start space-x-3 sm:space-x-3.5"
               >
-                <div className="p-2.5 rounded bg-white text-[#1e4620] border border-stone-200 shrink-0">
+                <div className="p-2 sm:p-2.5 rounded bg-white text-[#1e4620] border border-stone-200 shrink-0">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="space-y-1">
@@ -102,7 +102,7 @@ export function TrustSection() {
         </div>
 
         {/* Farmer Testimonial Quote Banner */}
-        <div className="mt-8 p-6 rounded-lg bg-[#1e4620] text-stone-100 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="mt-6 sm:mt-8 p-4 sm:p-6 rounded-lg bg-[#1e4620] text-stone-100 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-5">
           <div className="space-y-1.5 max-w-3xl">
             <div className="flex items-center gap-1.5 text-emerald-300 text-xs font-bold uppercase tracking-wider">
               <Check className="w-3.5 h-3.5" /> Commercial Farmer Field Trial Result
@@ -110,17 +110,17 @@ export function TrustSection() {
             <blockquote className="text-xs sm:text-sm font-medium text-stone-200 italic leading-relaxed">
               &ldquo;Switching to Topferty Cotton Special and Fast Target bio-stimulant increased our cotton boll retention significantly during dry spells. Root growth was deep with excellent soil moisture retention.&rdquo;
             </blockquote>
-            <div className="flex items-center gap-2 text-xs text-stone-300 pt-0.5">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-stone-300 pt-0.5">
               <span className="text-white font-semibold">Ramesh Patel</span>
-              <span>— 80-Acre Cotton & Soyabean Grower</span>
+              <span>— 80-Acre Cotton &amp; Soyabean Grower</span>
               <span className="flex items-center gap-1 text-emerald-300">
-                <MapPin className="w-3 h-3" /> Gujarat & Maharashtra Belt
+                <MapPin className="w-3 h-3" /> Gujarat &amp; Maharashtra Belt
               </span>
             </div>
           </div>
 
-          <div className="shrink-0 text-center md:text-right">
-            <div className="px-4 py-2 rounded bg-white text-[#1e4620] font-bold text-xs uppercase tracking-wide">
+          <div className="shrink-0 w-full md:w-auto text-left md:text-right">
+            <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded bg-white text-[#1e4620] font-bold text-xs uppercase tracking-wide">
               +32% Boll Retention Verified
             </div>
           </div>

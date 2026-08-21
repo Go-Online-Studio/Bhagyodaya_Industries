@@ -48,7 +48,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-[#fbfbf9] text-[#1c1917] antialiased flex flex-col selection:bg-[#1e4620] selection:text-white"
+        className="min-h-screen bg-[#fbfbf9] text-[#1c1917] antialiased flex flex-col selection:bg-[#1e4620] selection:text-white pb-16 md:pb-0"
       >
         <TrackingProvider campaign={activeCampaign} initialProducts={DEFAULT_PRODUCTS}>
           <PixelManager />

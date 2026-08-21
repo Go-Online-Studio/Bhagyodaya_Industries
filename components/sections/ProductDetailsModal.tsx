@@ -42,12 +42,12 @@ export function ProductDetailsModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="product-detail-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-900/60 backdrop-blur-xs animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-stone-900/60 backdrop-blur-xs animate-fadeIn"
     >
-      <div className="relative w-full max-w-2xl bg-white rounded-xl border border-stone-300 overflow-hidden max-h-[90vh] flex flex-col shadow-xl">
+      <div className="relative w-full max-w-2xl bg-white rounded-xl border border-stone-300 overflow-hidden max-h-[92vh] flex flex-col shadow-xl">
         
         {/* Header Ribbon */}
-        <div className="bg-[#fbfbf9] text-stone-900 px-6 py-3.5 flex items-center justify-between border-b border-stone-200 shrink-0">
+        <div className="bg-[#fbfbf9] text-stone-900 px-4 sm:px-6 py-3 flex items-center justify-between border-b border-stone-200 shrink-0">
           <span className="text-xs font-bold uppercase tracking-wider text-[#1e4620]">
             {product.category}
           </span>
@@ -55,18 +55,18 @@ export function ProductDetailsModal({
           <button
             onClick={onClose}
             aria-label="Close product details"
-            className="p-1 rounded text-stone-500 hover:text-stone-900 hover:bg-stone-200 transition cursor-pointer"
+            className="p-1.5 rounded text-stone-500 hover:text-stone-900 hover:bg-stone-200 transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="p-6 overflow-y-auto space-y-4">
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4">
           {/* Title, Product Image & ID */}
-          <div className="flex flex-col sm:flex-row gap-5 items-center sm:items-start">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start">
             {product.image && (
-              <div className="w-36 h-40 shrink-0 bg-[#fbfbf9] rounded border border-stone-200 p-2 flex items-center justify-center">
+              <div className="w-28 h-32 sm:w-36 sm:h-40 shrink-0 bg-[#fbfbf9] rounded border border-stone-200 p-2 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -76,10 +76,10 @@ export function ProductDetailsModal({
             )}
             <div className="flex-1 text-center sm:text-left">
               <div className="flex items-center justify-center sm:justify-between gap-2 flex-wrap mb-1">
-                <h3 id="product-detail-title" className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h3 id="product-detail-title" className="text-lg sm:text-xl font-bold text-stone-900 tracking-tight">
                   {product.name}
                 </h3>
-                <span className="text-xs font-mono font-semibold text-stone-500 bg-[#fbfbf9] px-2 py-0.5 rounded border border-stone-200">
+                <span className="text-[11px] font-mono font-semibold text-stone-500 bg-[#fbfbf9] px-2 py-0.5 rounded border border-stone-200">
                   {product.id}
                 </span>
               </div>
@@ -175,11 +175,11 @@ export function ProductDetailsModal({
         </div>
 
         {/* Footer Action */}
-        <div className="bg-[#fbfbf9] px-6 py-3 flex items-center justify-between border-t border-stone-200 shrink-0">
+        <div className="bg-[#fbfbf9] px-4 sm:px-6 py-3 flex items-center justify-between gap-3 border-t border-stone-200 shrink-0">
           <button
             type="button"
             onClick={onClose}
-            className="px-3 py-1.5 text-xs font-semibold text-stone-600 hover:text-stone-900 transition cursor-pointer"
+            className="px-3 py-2 text-xs font-semibold text-stone-600 hover:text-stone-900 transition cursor-pointer"
           >
             Close
           </button>
@@ -187,7 +187,7 @@ export function ProductDetailsModal({
           <button
             type="button"
             onClick={handleEnquire}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-semibold text-xs text-white bg-[#1e4620] hover:bg-[#153416] transition cursor-pointer shadow-2xs"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded font-semibold text-xs text-white bg-[#1e4620] hover:bg-[#153416] transition cursor-pointer shadow-2xs min-h-[40px]"
           >
             <Send className="w-3.5 h-3.5" /> Enquire For This Product
           </button>

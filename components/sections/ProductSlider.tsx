@@ -52,17 +52,17 @@ export function ProductSlider({ products }: ProductSliderProps) {
   };
 
   return (
-    <section id="products" className="py-14 bg-[#fbfbf9] text-stone-900 border-b border-stone-200">
+    <section id="products" className="py-10 sm:py-14 bg-[#fbfbf9] text-stone-900 border-b border-stone-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[#1e4620]">
               Product Lineup
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-stone-900 mt-0.5">
-              Topferty Organic & Bio-Nutrients
+              Topferty Organic &amp; Bio-Nutrients
             </h2>
             <p className="mt-1 text-stone-600 text-xs sm:text-sm leading-relaxed max-w-2xl">
               High bioactive carbon and chelated nutrient compounds formulated for rapid plant uptake and soil vitality.
@@ -70,18 +70,18 @@ export function ProductSlider({ products }: ProductSliderProps) {
           </div>
 
           {/* Carousel Buttons */}
-          <div className="flex items-center gap-2 self-start md:self-end">
+          <div className="flex items-center gap-2 self-end sm:self-auto shrink-0">
             <button
               id="swiper-prev-btn"
               aria-label="Previous product"
-              className="p-2.5 rounded bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 shadow-2xs transition cursor-pointer"
+              className="p-2 sm:p-2.5 rounded bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 shadow-2xs transition cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center active:scale-95"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               id="swiper-next-btn"
               aria-label="Next product"
-              className="p-2.5 rounded bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 shadow-2xs transition cursor-pointer"
+              className="p-2 sm:p-2.5 rounded bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 shadow-2xs transition cursor-pointer min-h-[38px] min-w-[38px] flex items-center justify-center active:scale-95"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
@@ -104,7 +104,7 @@ export function ProductSlider({ products }: ProductSliderProps) {
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
-            spaceBetween={20}
+            spaceBetween={16}
             slidesPerView={1}
             breakpoints={{
               640: {
@@ -127,10 +127,10 @@ export function ProductSlider({ products }: ProductSliderProps) {
                   {/* Category & ID */}
                   <div className="p-4 pb-2 border-b border-stone-100">
                     <div className="flex items-center justify-between gap-2 mb-1.5">
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#1e4620]">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#1e4620] truncate">
                         {product.category}
                       </span>
-                      <span className="text-[11px] font-medium text-stone-500">
+                      <span className="text-[11px] font-medium text-stone-500 shrink-0">
                         {product.packagingSizes?.[0] || "50.00 Kg Bag"}
                       </span>
                     </div>
@@ -141,7 +141,7 @@ export function ProductSlider({ products }: ProductSliderProps) {
                   </div>
 
                   {/* Product Image Frame */}
-                  <div className="p-4 bg-[#fbfbf9] border-b border-stone-100 flex items-center justify-center h-48">
+                  <div className="p-4 bg-[#fbfbf9] border-b border-stone-100 flex items-center justify-center h-40 sm:h-48">
                     {product.image ? (
                       <img
                         src={product.image}
@@ -181,7 +181,7 @@ export function ProductSlider({ products }: ProductSliderProps) {
                         e.stopPropagation();
                         handleProductCardClick(product);
                       }}
-                      className="flex-1 py-2 rounded text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 border border-stone-300 transition flex items-center justify-center gap-1 cursor-pointer"
+                      className="flex-1 py-2.5 rounded text-xs font-semibold text-stone-700 bg-white hover:bg-stone-50 border border-stone-300 transition flex items-center justify-center gap-1 cursor-pointer min-h-[38px] active:scale-95"
                     >
                       <Info className="w-3.5 h-3.5 text-stone-500" />
                       <span>Details</span>
@@ -190,7 +190,7 @@ export function ProductSlider({ products }: ProductSliderProps) {
                     <button
                       type="button"
                       onClick={(e) => handleEnquireClick(product, e)}
-                      className="flex-1 py-2 rounded text-xs font-semibold text-white bg-[#1e4620] hover:bg-[#153416] transition flex items-center justify-center gap-1 cursor-pointer shadow-2xs"
+                      className="flex-1 py-2.5 rounded text-xs font-semibold text-white bg-[#1e4620] hover:bg-[#153416] transition flex items-center justify-center gap-1 cursor-pointer shadow-2xs min-h-[38px] active:scale-95"
                     >
                       <span>Enquire</span>
                       <ArrowRight className="w-3.5 h-3.5" />
