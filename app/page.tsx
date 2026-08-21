@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { SeasonalBanner } from "@/components/sections/SeasonalBanner";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { TenureSelector } from "@/components/sections/TenureSelector";
-import { CropsSpectrum } from "@/components/sections/CropsSpectrum";
 import { ProductSlider } from "@/components/sections/ProductSlider";
 import { ThreeStepProcess } from "@/components/sections/ThreeStepProcess";
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
@@ -23,9 +22,8 @@ export default function LandingPage() {
       <SeasonalBanner campaign={activeCampaign} />
       <main className="flex-1">
         <HeroSection campaign={activeCampaign} />
-        <TenureSelector initialSeason={activeCampaign.season} />
-        <CropsSpectrum />
         <ProductSlider products={DEFAULT_PRODUCTS} />
+        <TenureSelector initialSeason={activeCampaign.season} />
         <ThreeStepProcess />
         <BenefitsSection />
         <TrustSection />

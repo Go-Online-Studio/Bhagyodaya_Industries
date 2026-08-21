@@ -76,35 +76,28 @@ export function Header() {
               onClick={() => handleNavClick("products")}
               className="hover:text-[#1e4620] transition py-1"
             >
-              Products
-            </a>
-            <a
-              href="#crops"
-              onClick={() => handleNavClick("crops")}
-              className="hover:text-[#1e4620] transition py-1"
-            >
-              Crops
+              उत्पादने (Products)
             </a>
             <a
               href="#seasons"
               onClick={() => handleNavClick("seasons")}
               className="hover:text-[#1e4620] transition py-1"
             >
-              Seasonal Tenure
+              हंगाम वेळापत्रक (Schedule)
             </a>
             <a
               href="#trust"
               onClick={() => handleNavClick("trust")}
               className="hover:text-[#1e4620] transition py-1"
             >
-              Quality & R&D
+              गुणवत्ता (Quality &amp; R&amp;D)
             </a>
             <a
               href="#lead-section"
               onClick={() => handleNavClick("contact")}
               className="hover:text-[#1e4620] transition py-1"
             >
-              Farmer Enquiry
+              दर विचारा (Enquiry)
             </a>
           </nav>
 
@@ -132,7 +125,7 @@ export function Header() {
               onClick={handleEnquireClick}
               className="px-3 py-1.5 text-xs font-semibold text-white bg-[#1e4620] hover:bg-[#153416] rounded shadow-xs active:scale-95 transition"
             >
-              Quote
+              दर विचारा
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -154,35 +147,28 @@ export function Header() {
               onClick={() => handleNavClick("products")}
               className="px-3 py-2.5 hover:bg-stone-50 rounded transition"
             >
-              Products Catalog
-            </a>
-            <a
-              href="#crops"
-              onClick={() => handleNavClick("crops")}
-              className="px-3 py-2.5 hover:bg-stone-50 rounded transition"
-            >
-              Target Crops Matrix
+              उत्पादने कॅटलॉग (Products Catalog)
             </a>
             <a
               href="#seasons"
               onClick={() => handleNavClick("seasons")}
               className="px-3 py-2.5 hover:bg-stone-50 rounded transition"
             >
-              Seasonal Tenures & Schedule
+              हंगाम वेळापत्रक (Seasonal Schedule)
             </a>
             <a
               href="#trust"
               onClick={() => handleNavClick("trust")}
               className="px-3 py-2.5 hover:bg-stone-50 rounded transition"
             >
-              About & Quality Standards
+              फॅक्टरी व गुणवत्ता (Quality Standards)
             </a>
             <a
               href="#lead-section"
               onClick={() => handleNavClick("contact")}
               className="px-3 py-2.5 hover:bg-stone-50 rounded transition"
             >
-              Farmer Advisory & Quotation
+              थेट फॅक्टरी दर विचारा (Get Factory Quote)
             </a>
           </nav>
           <div className="pt-2 border-t border-stone-100 flex flex-col gap-2">
