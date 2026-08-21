@@ -56,13 +56,9 @@ export function LeadForm({
   const idPrefix = useId();
   const nameId = `${idPrefix}-name`;
   const phoneId = `${idPrefix}-phone`;
-  const emailId = `${idPrefix}-email`;
   const stateId = `${idPrefix}-state`;
   const districtId = `${idPrefix}-district`;
-  const cropId = `${idPrefix}-crop`;
   const productId = `${idPrefix}-product`;
-  const messageId = `${idPrefix}-message`;
-  const consentId = `${idPrefix}-consent`;
 
   const {
     register,
@@ -75,13 +71,10 @@ export function LeadForm({
     defaultValues: {
       name: "",
       phone: "",
-      email: "",
       state: "",
       district: "",
-      crop: "",
       productId: activeProduct?.id || (availableProducts[0]?.id ?? "topferty-cotton"),
       productName: activeProduct?.name || (availableProducts[0]?.name ?? "Topferty Cotton Special"),
-      message: "",
       consent: true,
       consentVersion: "v1.0",
       honeypot: "",
@@ -155,13 +148,28 @@ export function LeadForm({
       }
 
       setFormSubmitted(true);
-      setSubmittedLead({ name: data.name, productName: data.productName });
+      setSubmittedLead({ name: data.name || "Valued Farmer", productName: data.productName || "Product" });
 
+      // Trigger Meta Pixel & Google Analytics Lead Event
       track("lead", {
         productId: data.productId,
         productName: data.productName,
         leadId: json.leadId,
       });
+
+      // Direct Meta Pixel backup dispatch if window.fbq exists
+      if (typeof window !== "undefined" && window.fbq) {
+        try {
+          window.fbq("track", "Lead", {
+            content_name: data.productName,
+            content_category: "Fertilizer",
+            value: 0,
+            currency: "INR",
+          });
+        } catch {
+          // Ignored
+        }
+      }
 
       if (onSuccess) {
         onSuccess();
@@ -197,7 +205,7 @@ export function LeadForm({
             {title || "Request Product Quotation"}
           </h3>
           <p className="mt-0.5 text-xs text-stone-500">
-            {subtitle || "Fill in your farm details below for direct manufacturer pricing."}
+            {subtitle || "Enter your contact details below for direct manufacturer pricing."}
           </p>
         </div>
       )}
@@ -222,11 +230,11 @@ export function LeadForm({
           {...register("honeypot")}
         />
 
-        {/* Row 1: Name & Phone */}
+        {/* Row 1: Name & Mobile Number (Required) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
           <div>
             <label htmlFor={nameId} className="block text-xs font-semibold text-stone-700 mb-1">
-              Full Name <span className="text-[#1e4620]">*</span>
+              Full Name <span className="text-stone-400 font-normal">(Optional)</span>
             </label>
             <input
               id={nameId}
@@ -244,12 +252,12 @@ export function LeadForm({
 
           <div>
             <label htmlFor={phoneId} className="block text-xs font-semibold text-stone-700 mb-1">
-              Mobile Number <span className="text-[#1e4620]">*</span>
+              Mobile Number <span className="text-[#1e4620] font-bold">*</span>
             </label>
             <input
               id={phoneId}
               type="tel"
-              placeholder="+91 98765 43210"
+              placeholder="e.g. 9876543210"
               className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
                 errors.phone ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
               } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
@@ -261,93 +269,10 @@ export function LeadForm({
           </div>
         </div>
 
-        {/* Row 2: Email & Primary Crop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-          <div>
-            <label htmlFor={emailId} className="block text-xs font-semibold text-stone-700 mb-1">
-              Email Address <span className="text-[#1e4620]">*</span>
-            </label>
-            <input
-              id={emailId}
-              type="email"
-              placeholder="farmer@email.com"
-              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
-                errors.email ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
-              {...register("email")}
-            />
-            {errors.email && (
-              <p className="mt-1 text-xs text-rose-600">{errors.email.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor={cropId} className="block text-xs font-semibold text-stone-700 mb-1">
-              Target Crop <span className="text-[#1e4620]">*</span>
-            </label>
-            <select
-              id={cropId}
-              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
-                errors.crop ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
-              {...register("crop")}
-            >
-              <option value="">Select Primary Crop</option>
-              {COMMON_CROPS.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-            {errors.crop && (
-              <p className="mt-1 text-xs text-rose-600">{errors.crop.message}</p>
-            )}
-          </div>
-        </div>
-
-        {/* Row 3: State & District */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-          <div>
-            <label htmlFor={stateId} className="block text-xs font-semibold text-stone-700 mb-1">
-              State <span className="text-[#1e4620]">*</span>
-            </label>
-            <input
-              id={stateId}
-              type="text"
-              placeholder="e.g. Maharashtra / Gujarat"
-              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
-                errors.state ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
-              {...register("state")}
-            />
-            {errors.state && (
-              <p className="mt-1 text-xs text-rose-600">{errors.state.message}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor={districtId} className="block text-xs font-semibold text-stone-700 mb-1">
-              District <span className="text-[#1e4620]">*</span>
-            </label>
-            <input
-              id={districtId}
-              type="text"
-              placeholder="e.g. Nagpur / Vadodara"
-              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
-                errors.district ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
-              {...register("district")}
-            />
-            {errors.district && (
-              <p className="mt-1 text-xs text-rose-600">{errors.district.message}</p>
-            )}
-          </div>
-        </div>
-
-        {/* Product Dropdown & Thumbnail Helper */}
+        {/* Row 2: Product Required */}
         <div>
           <label htmlFor={productId} className="block text-xs font-semibold text-stone-700 mb-1">
-            Product Required <span className="text-[#1e4620]">*</span>
+            Product Required
           </label>
           <select
             id={productId}
@@ -395,36 +320,43 @@ export function LeadForm({
           })()}
         </div>
 
-        {/* Message */}
-        <div>
-          <label htmlFor={messageId} className="block text-xs font-semibold text-stone-700 mb-1">
-            Acreage / Specific Questions (Optional)
-          </label>
-          <textarea
-            id={messageId}
-            rows={2}
-            placeholder="e.g. 20 acres of cotton, need basal dose advice and price quote for 40 bags."
-            className="w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border border-stone-300 focus:border-[#1e4620] focus:outline-none transition min-h-[44px]"
-            {...register("message")}
-          />
-        </div>
-
-        {/* Consent Checkbox */}
-        <div>
-          <label htmlFor={consentId} className="flex items-start gap-2 cursor-pointer">
+        {/* Row 3: State & District */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+          <div>
+            <label htmlFor={stateId} className="block text-xs font-semibold text-stone-700 mb-1">
+              State <span className="text-stone-400 font-normal">(Optional)</span>
+            </label>
             <input
-              id={consentId}
-              type="checkbox"
-              className="mt-0.5 w-4 h-4 text-[#1e4620] rounded border-stone-300 focus:ring-[#1e4620] shrink-0"
-              {...register("consent")}
+              id={stateId}
+              type="text"
+              placeholder="e.g. Maharashtra / Gujarat"
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
+                errors.state ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
+              {...register("state")}
             />
-            <span className="text-xs text-stone-600 leading-snug">
-              I agree to receive fertilizer dosage schedules and factory rate updates from Bhagyodaya Industries.
-            </span>
-          </label>
-          {errors.consent && (
-            <p className="mt-1 text-xs text-rose-600">{errors.consent.message}</p>
-          )}
+            {errors.state && (
+              <p className="mt-1 text-xs text-rose-600">{errors.state.message}</p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor={districtId} className="block text-xs font-semibold text-stone-700 mb-1">
+              District <span className="text-stone-400 font-normal">(Optional)</span>
+            </label>
+            <input
+              id={districtId}
+              type="text"
+              placeholder="e.g. Nagpur / Vadodara"
+              className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
+                errors.district ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
+              } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
+              {...register("district")}
+            />
+            {errors.district && (
+              <p className="mt-1 text-xs text-rose-600">{errors.district.message}</p>
+            )}
+          </div>
         </div>
 
         {/* Submit Button */}
@@ -441,7 +373,7 @@ export function LeadForm({
           ) : (
             <>
               <Send className="w-4 h-4 text-white" />
-              <span>Submit Technical Enquiry</span>
+              <span>Get Factory Price Quote</span>
             </>
           )}
         </button>
@@ -449,7 +381,7 @@ export function LeadForm({
         {/* Trust Footnote */}
         <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] text-stone-500 pt-1 border-t border-stone-200 text-center">
           <span className="flex items-center gap-1">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#1e4620] shrink-0" /> Direct Manufacturer Support
+            <ShieldCheck className="w-3.5 h-3.5 text-[#1e4620] shrink-0" /> Direct Factory Support
           </span>
           <span className="flex items-center gap-1">
             <Check className="w-3.5 h-3.5 text-[#1e4620] shrink-0" /> ISO 9001:2015 Certified

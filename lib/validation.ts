@@ -3,44 +3,21 @@ import { z } from "zod";
 export const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
 
 export const leadFormSchema = z.object({
-  name: z
-    .string()
-    .min(2, { message: "Full name must be at least 2 characters" })
-    .max(100, { message: "Name is too long" })
-    .regex(/^[a-zA-Z\s.'-]+$/, { message: "Name contains invalid characters" }),
+  name: z.string().max(100, { message: "Name is too long" }).optional(),
   phone: z
     .string()
-    .min(10, { message: "Please enter a valid phone number (min 10 digits)" })
+    .min(10, { message: "Please enter a valid 10-digit mobile number" })
     .max(15, { message: "Phone number is too long" })
-    .regex(phoneRegex, { message: "Please enter a valid phone number" }),
-  email: z
-    .string()
-    .min(1, { message: "Email is required" })
-    .email({ message: "Please enter a valid email address" }),
-  state: z
-    .string()
-    .min(2, { message: "Please enter your state/province" }),
-  district: z
-    .string()
-    .min(2, { message: "Please enter your district/region" }),
-  crop: z
-    .string()
-    .min(2, { message: "Please select or specify your primary crop" }),
-  productId: z
-    .string()
-    .min(1, { message: "Please select a product of interest" }),
-  productName: z
-    .string()
-    .min(1, { message: "Product name is required" }),
-  message: z
-    .string()
-    .max(1000, { message: "Message cannot exceed 1000 characters" })
-    .optional(),
-  consent: z
-    .boolean()
-    .refine((val) => val === true, {
-      message: "You must accept the terms to request product guidance",
-    }),
+    .regex(phoneRegex, { message: "Please enter a valid mobile number" }),
+  productId: z.string().min(1, { message: "Product is required" }),
+  productName: z.string().min(1, { message: "Product name is required" }),
+  state: z.string().max(100).optional(),
+  district: z.string().max(100).optional(),
+  // Optional / metadata fields
+  email: z.string().optional(),
+  crop: z.string().optional(),
+  message: z.string().max(1000).optional(),
+  consent: z.boolean().optional(),
   consentVersion: z.string().optional(),
   pageUrl: z.string().optional(),
   referrer: z.string().optional(),

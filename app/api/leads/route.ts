@@ -58,16 +58,16 @@ export async function POST(request: NextRequest) {
 
     // 4. Sanitize strings
     const sanitizedData = {
-      name: data.name.trim(),
+      name: (data.name || "").trim(),
       phone: data.phone.trim(),
-      email: data.email.trim().toLowerCase(),
-      state: data.state.trim(),
-      district: data.district.trim(),
-      crop: data.crop.trim(),
-      productId: data.productId.trim(),
-      productName: data.productName.trim(),
+      state: (data.state || "").trim(),
+      district: (data.district || "").trim(),
+      productId: (data.productId || "topferty-cotton").trim(),
+      productName: (data.productName || "Topferty Cotton Special").trim(),
+      email: (data.email || "").trim().toLowerCase(),
+      crop: (data.crop || "").trim(),
       message: (data.message || "").trim(),
-      consent: data.consent,
+      consent: data.consent ?? true,
       consentVersion: data.consentVersion || "v1.0",
       pageUrl: data.pageUrl || "",
       referrer: data.referrer || "",
@@ -93,7 +93,41 @@ export async function POST(request: NextRequest) {
       // Save directly to local JSON file data/leads.json
       const { saveJsonLead } = await import("@/lib/data-store");
       leadId = await saveJsonLead(sanitizedData);
-      console.log("📝 Lead stored to data/leads.json (Local Mode):", leadId, sanitizedData.name);
+      console.log("📝 Lead stored to data/leads.json (Local Mode):", leadId, sanitizedData.phone);
+    }
+
+    // 6. Forward to Google Sheets Webhook / Google Apps Script
+    const googleWebhookUrl =
+      process.env.GOOGLE_SHEETS_WEBHOOK_URL || process.env.GOOGLE_SCRIPT_URL;
+
+    if (googleWebhookUrl) {
+      try {
+        const googlePayload = {
+          date: new Date().toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata" }),
+          time: new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" }),
+          name: sanitizedData.name || "N/A",
+          phone: sanitizedData.phone,
+          product: sanitizedData.productName,
+          state: sanitizedData.state || "N/A",
+          district: sanitizedData.district || "N/A",
+          utmSource: sanitizedData.utmSource || "direct",
+          utmCampaign: sanitizedData.utmCampaign || "none",
+          pageUrl: sanitizedData.pageUrl,
+          leadId,
+        };
+
+        // Asynchronous non-blocking post to Google Sheets
+        fetch(googleWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(googlePayload),
+          mode: "no-cors",
+        }).catch((err) => {
+          console.error("⚠️ Google Sheets Webhook error:", err);
+        });
+      } catch (gErr) {
+        console.error("⚠️ Failed sending lead to Google Sheets:", gErr);
+      }
     }
 
     return NextResponse.json(
