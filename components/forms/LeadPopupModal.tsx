@@ -63,24 +63,30 @@ export function LeadPopupModal({ availableProducts }: LeadPopupModalProps) {
       aria-modal="true"
       aria-labelledby="popup-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-900/60 backdrop-blur-xs animate-fadeIn"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleClose();
+      }}
     >
-      <div className="relative w-full max-w-xl bg-white border-2 border-stone-300 overflow-hidden max-h-[95vh] flex flex-col shadow-2xl">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl border border-stone-200 overflow-hidden max-h-[88vh] sm:max-h-[90vh] flex flex-col shadow-2xl">
         {/* Top ribbon */}
-        <div className="bg-stone-50 text-stone-900 px-6 py-3 flex items-center justify-between border-b border-stone-200">
-          <div className="flex items-center space-x-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#4d7712]">
+        <div className="bg-[#fbfbf9] text-stone-900 px-4 sm:px-6 py-3.5 flex items-center justify-between border-b border-stone-200 shrink-0">
+          <div>
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#1e4620] block">
               {activeCampaign?.name || "Seasonal Crop Support"}
             </span>
+            <h3 id="popup-modal-title" className="text-sm sm:text-base font-bold text-stone-900 leading-tight">
+              Get Agronomic Dosage &amp; Factory Quote
+            </h3>
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="hidden sm:flex items-center gap-1 text-[11px] text-stone-600">
-              <Clock className="w-3.5 h-3.5 text-[#659a19]" /> Agronomists Online
+          <div className="flex items-center gap-2">
+            <span className="hidden sm:flex items-center gap-1 text-[11px] font-medium text-stone-600 bg-white px-2 py-0.5 rounded border border-stone-200">
+              <Clock className="w-3.5 h-3.5 text-[#1e4620]" /> Online
             </span>
             <button
               onClick={handleClose}
               aria-label="Close enquiry popup"
-              className="p-1 text-stone-500 hover:text-stone-900 hover:bg-stone-200 transition cursor-pointer"
+              className="p-1.5 text-stone-500 hover:text-stone-900 hover:bg-stone-200 rounded-md transition cursor-pointer min-h-[36px] min-w-[36px] flex items-center justify-center"
             >
               <X className="w-5 h-5" />
             </button>
@@ -88,11 +94,11 @@ export function LeadPopupModal({ availableProducts }: LeadPopupModalProps) {
         </div>
 
         {/* Modal Body */}
-        <div className="p-4 sm:p-6 overflow-y-auto">
+        <div className="p-4 sm:p-6 overflow-y-auto overscroll-contain">
           <LeadForm
             formType="popup"
             availableProducts={availableProducts}
-            title={`Get Field Dosage: ${activeProduct?.name || "Topferty Products"}`}
+            title={`Field Dosage: ${activeProduct?.name || "Topferty Products"}`}
             subtitle="Connect with certified agronomists for customized soil health and yield recommendations."
             onSuccess={handleSuccess}
           />

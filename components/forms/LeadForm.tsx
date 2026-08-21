@@ -186,17 +186,21 @@ export function LeadForm({
     );
   }
 
+  const isPopup = formType === "popup" || formType === "modal";
+
   return (
-    <div className="bg-[#fbfbf9] rounded-xl p-4 sm:p-7 border border-stone-200 shadow-xs">
+    <div className={isPopup ? "w-full" : "bg-[#fbfbf9] rounded-xl p-4 sm:p-7 border border-stone-200 shadow-xs"}>
       {/* Header */}
-      <div className="mb-4 sm:mb-5 pb-3 border-b border-stone-200">
-        <h3 className="text-lg sm:text-xl font-bold text-stone-900">
-          {title || "Request Product Quotation"}
-        </h3>
-        <p className="mt-0.5 text-xs text-stone-500">
-          {subtitle || "Fill in your farm details below for direct manufacturer pricing."}
-        </p>
-      </div>
+      {!isPopup && (
+        <div className="mb-4 sm:mb-5 pb-3 border-b border-stone-200">
+          <h3 className="text-lg sm:text-xl font-bold text-stone-900">
+            {title || "Request Product Quotation"}
+          </h3>
+          <p className="mt-0.5 text-xs text-stone-500">
+            {subtitle || "Fill in your farm details below for direct manufacturer pricing."}
+          </p>
+        </div>
+      )}
 
       {serverError && (
         <div
