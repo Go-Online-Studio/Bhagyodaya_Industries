@@ -9,8 +9,9 @@ export const leadFormSchema = z.object({
     .min(10, { message: "Please enter a valid 10-digit mobile number" })
     .max(15, { message: "Phone number is too long" })
     .regex(phoneRegex, { message: "Please enter a valid mobile number" }),
-  productId: z.string().min(1, { message: "Product is required" }),
+  productId: z.string().min(1, { message: "Please select at least one product" }),
   productName: z.string().min(1, { message: "Product name is required" }),
+  selectedProductIds: z.array(z.string()).optional(),
   state: z.string().max(100).optional(),
   district: z.string().max(100).optional(),
   // Optional / metadata fields

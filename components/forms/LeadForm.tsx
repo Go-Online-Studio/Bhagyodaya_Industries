@@ -14,6 +14,7 @@ import {
   AlertCircle,
   ShieldCheck,
   Check,
+  Package,
 } from "lucide-react";
 
 interface LeadFormProps {
@@ -60,6 +61,9 @@ export function LeadForm({
   const districtId = `${idPrefix}-district`;
   const productId = `${idPrefix}-product`;
 
+  const initialProdId = activeProduct?.id || (availableProducts[0]?.id ?? "topferty-cotton");
+  const [selectedProductIds, setSelectedProductIds] = useState<string[]>([initialProdId]);
+
   const {
     register,
     handleSubmit,
@@ -73,29 +77,61 @@ export function LeadForm({
       phone: "",
       state: "",
       district: "",
-      productId: activeProduct?.id || (availableProducts[0]?.id ?? "topferty-cotton"),
+      productId: initialProdId,
       productName: activeProduct?.name || (availableProducts[0]?.name ?? "Topferty Cotton Special"),
+      selectedProductIds: [initialProdId],
       consent: true,
       consentVersion: "v1.0",
       honeypot: "",
     },
   });
 
-  const watchedProductId = watch("productId");
-
+  // Keep selectedProductIds in sync when activeProduct changes from outside (e.g. clicking a product card)
   useEffect(() => {
-    if (activeProduct) {
-      setValue("productId", activeProduct.id);
-      setValue("productName", activeProduct.name);
+    if (activeProduct && !selectedProductIds.includes(activeProduct.id)) {
+      const updated = [activeProduct.id, ...selectedProductIds.filter(id => id !== activeProduct.id)];
+      setSelectedProductIds(updated);
+      syncSelectedProducts(updated);
     }
-  }, [activeProduct, setValue]);
+  }, [activeProduct]);
 
-  useEffect(() => {
-    const matched = availableProducts.find((p) => p.id === watchedProductId);
-    if (matched) {
-      setValue("productName", matched.name);
+  const syncSelectedProducts = (ids: string[]) => {
+    const selectedProds = availableProducts.filter((p) => ids.includes(p.id));
+    const prodNames = selectedProds.map((p) => p.name).join(", ");
+    const prodIds = ids.join(", ");
+
+    setValue("productId", prodIds || "topferty-cotton");
+    setValue("productName", prodNames || "Topferty Products");
+    setValue("selectedProductIds", ids);
+  };
+
+  const toggleProductSelection = (prodId: string) => {
+    let updated: string[];
+    if (selectedProductIds.includes(prodId)) {
+      if (selectedProductIds.length === 1) {
+        // Keep at least one selected, or allow toggle
+        updated = selectedProductIds;
+      } else {
+        updated = selectedProductIds.filter((id) => id !== prodId);
+      }
+    } else {
+      updated = [...selectedProductIds, prodId];
     }
-  }, [watchedProductId, availableProducts, setValue]);
+    setSelectedProductIds(updated);
+    syncSelectedProducts(updated);
+  };
+
+  const handleSelectAll = () => {
+    const allIds = availableProducts.map((p) => p.id);
+    setSelectedProductIds(allIds);
+    syncSelectedProducts(allIds);
+  };
+
+  const handleClearAll = () => {
+    const defaultId = [availableProducts[0]?.id || "topferty-cotton"];
+    setSelectedProductIds(defaultId);
+    syncSelectedProducts(defaultId);
+  };
 
   useEffect(() => {
     track("form_view", {
@@ -269,55 +305,89 @@ export function LeadForm({
           </div>
         </div>
 
-        {/* Row 2: Product Required */}
+        {/* Row 2: Multi-Product Requirement Selector */}
         <div>
-          <label htmlFor={productId} className="block text-xs font-semibold text-stone-700 mb-1">
-            Product Required
-          </label>
-          <select
-            id={productId}
-            className={`w-full px-3 py-2.5 text-base sm:text-sm rounded bg-white border ${
-              errors.productId ? "border-rose-400 bg-rose-50/50" : "border-stone-300"
-            } focus:border-[#1e4620] focus:outline-none transition min-h-[42px]`}
-            {...register("productId")}
-          >
-            {availableProducts.map((p) => (
-              <option key={p.id} value={p.id}>
-                {p.name} ({p.category})
-              </option>
-            ))}
-          </select>
-          {errors.productId && (
-            <p className="mt-1 text-xs text-rose-600">{errors.productId.message}</p>
-          )}
+          <div className="flex items-center justify-between gap-2 mb-1.5">
+            <div>
+              <label className="block text-xs font-bold text-stone-900">
+                उत्पादने निवडा (Select Required Products)
+              </label>
+              <span className="text-[11px] text-stone-500 block">
+                एक किंवा अधिक उत्पादने निवडा (You can select multiple)
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 shrink-0">
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#1e4620]/10 text-[#1e4620] border border-[#1e4620]/20">
+                {selectedProductIds.length} निवडली
+              </span>
+              <button
+                type="button"
+                onClick={handleSelectAll}
+                className="text-[11px] font-semibold text-[#1e4620] hover:underline cursor-pointer"
+              >
+                सर्व निवडा
+              </button>
+            </div>
+          </div>
 
-          {/* Active Product Thumbnail Helper */}
-          {(() => {
-            const selectedProd =
-              availableProducts.find((p) => p.id === watchedProductId) || availableProducts[0];
-            if (selectedProd?.image) {
+          {/* Hidden inputs for form registration */}
+          <input type="hidden" {...register("productId")} />
+          <input type="hidden" {...register("productName")} />
+
+          {/* Clean Selectable Product Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-56 sm:max-h-64 overflow-y-auto overscroll-contain p-1 rounded-lg border border-stone-200 bg-white">
+            {availableProducts.map((p) => {
+              const isSelected = selectedProductIds.includes(p.id);
               return (
-                <div className="mt-2 p-2 rounded bg-white border border-stone-200 flex items-center gap-2.5">
-                  <div className="w-10 h-10 rounded bg-[#fbfbf9] p-0.5 border border-stone-200 shrink-0 flex items-center justify-center">
-                    <img
-                      src={selectedProd.image}
-                      alt={selectedProd.name}
-                      className="max-h-full max-w-full object-contain"
-                    />
+                <div
+                  key={p.id}
+                  onClick={() => toggleProductSelection(p.id)}
+                  className={`p-2 rounded-lg border transition-all cursor-pointer flex items-center justify-between gap-2 text-left ${
+                    isSelected
+                      ? "border-[#1e4620] bg-[#1e4620]/5 shadow-xs"
+                      : "border-stone-200 bg-white hover:bg-stone-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div className="w-9 h-9 rounded bg-[#fbfbf9] p-0.5 border border-stone-200 shrink-0 flex items-center justify-center">
+                      {p.image ? (
+                        <img
+                          src={p.image}
+                          alt={p.name}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      ) : (
+                        <Package className="w-4 h-4 text-stone-400" />
+                      )}
+                    </div>
+                    <div className="min-w-0">
+                      <span className={`text-xs font-bold block truncate leading-tight ${isSelected ? "text-[#1e4620]" : "text-stone-900"}`}>
+                        {p.name}
+                      </span>
+                      <span className="text-[10px] text-stone-500 block truncate">
+                        {p.packagingSizes?.[0] || p.category}
+                      </span>
+                    </div>
                   </div>
-                  <div className="text-xs min-w-0">
-                    <span className="font-semibold text-stone-900 block truncate">
-                      {selectedProd.name}
-                    </span>
-                    <span className="text-stone-500 text-[11px] truncate block">
-                      {selectedProd.category} • {selectedProd.packagingSizes?.[0] || "50.00 Kg Bag"}
-                    </span>
+
+                  {/* Checkbox indicator */}
+                  <div
+                    className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 transition-colors ${
+                      isSelected
+                        ? "bg-[#1e4620] border-[#1e4620] text-white"
+                        : "border-stone-300 bg-white"
+                    }`}
+                  >
+                    {isSelected && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                   </div>
                 </div>
               );
-            }
-            return null;
-          })()}
+            })}
+          </div>
+
+          {errors.productId && (
+            <p className="mt-1 text-xs text-rose-600">{errors.productId.message}</p>
+          )}
         </div>
 
         {/* Row 3: State & District */}
