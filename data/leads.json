@@ -1,0 +1,25 @@
+[
+  {
+    "id": "lead_1787296986375_qvipa0",
+    "name": "Smit Patel",
+    "phone": "9726045883",
+    "email": "smit93888@gmail.com",
+    "state": "Gujrat",
+    "district": "Vadodara",
+    "crop": "Cotton (कापूस)",
+    "productId": "fast-target",
+    "productName": "Fast Target Bio-Stimulant Granule",
+    "message": "aa",
+    "consent": true,
+    "consentVersion": "v1.0",
+    "pageUrl": "http://localhost:3000/",
+    "referrer": "",
+    "utmSource": "",
+    "utmMedium": "",
+    "utmCampaign": "",
+    "utmContent": "",
+    "utmTerm": "",
+    "ipHash": "7558a00c3ce4c00c47416073",
+    "createdAt": "2026-08-21T07:23:06.375Z"
+  }
+]

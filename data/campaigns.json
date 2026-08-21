@@ -1,0 +1,90 @@
+[
+  {
+    "campaignId": "jul-sept",
+    "name": "Kharif Peak & Monsoon Crop Nutrition Campaign",
+    "season": "JULY_SEPTEMBER",
+    "startMonth": 7,
+    "endMonth": 9,
+    "headline": "Maximize Kharif Crop Yields with Specialized Organic & Bio-Nutrients",
+    "subheadline": "ISO 9001 & FCO Certified Organic Manure and Bio-stimulants for Cotton, Soybean, Paddy, Sugarcane, Banana & Turmeric.",
+    "description": "During July-September monsoon rains, crops need deep root anchorage and protection against nutrient leaching. Our specialized Topferty crop-specific formulations deliver maximum nutrient absorption and heavy tillering.",
+    "ctaText": "Get Free July-Sept Kharif Dosage Schedule",
+    "featuredProductId": "topferty-cotton",
+    "productIds": [
+      "topferty-cotton",
+      "topferty-soyabean",
+      "topferty-paddy",
+      "topferty-banana-turmeric",
+      "topferty-sugarcane",
+      "fast-target",
+      "microzyme-crop-plus"
+    ],
+    "badge": "Active July-Sept (Kharif) Season Advisory",
+    "advisoryText": "Peak Kharif vegetative and tillering phase: Apply Topferty Cotton, Soyabean & Paddy special for rapid root anchoring and heavy yields.",
+    "active": true
+  },
+  {
+    "campaignId": "oct-dec",
+    "name": "Post-Monsoon & Rabi Early Sowing Campaign",
+    "season": "OCTOBER_DECEMBER",
+    "startMonth": 10,
+    "endMonth": 12,
+    "headline": "Boost Rabi Sowing, Bulb Sizing & Harvest Yields",
+    "subheadline": "Specialized Organic Manure for Onion, Wheat, Sugarcane and Fast Target Bio-stimulant for rapid root establishment.",
+    "description": "October-December marks critical Rabi crop planting and late Kharif harvesting. Ensure vigorous early root establishment and heavy bulb sizing with Topferty Onion and Fast Target.",
+    "ctaText": "Claim Oct-Dec Rabi Sowing Advisory",
+    "featuredProductId": "topferty-onion",
+    "productIds": [
+      "topferty-onion",
+      "fast-target",
+      "topferty-sugarcane",
+      "microzyme-crop-plus",
+      "topferty-paddy"
+    ],
+    "badge": "Active Oct-Dec (Rabi Sowing) Advisory",
+    "advisoryText": "Rabi sowing in progress: Apply Topferty Onion Special & Fast Target bio-stimulant for robust germination and bulb growth.",
+    "active": true
+  },
+  {
+    "campaignId": "jan-mar",
+    "name": "Winter Rabi Growth & Frost Defense Campaign",
+    "season": "JANUARY_MARCH",
+    "startMonth": 1,
+    "endMonth": 3,
+    "headline": "Protect Winter Rabi Crops & Accelerate Grain & Root Development",
+    "subheadline": "High-efficiency Seaweed Extract Bio-stimulants & Organic Nutrients to combat cold stress and maximize grain filling.",
+    "description": "Cold January-March weather locks down root nutrient uptake. Fast Target and Microzyme Crop+ maintain active vascular flow, frost resilience, and bold grain filling.",
+    "ctaText": "Get Jan-Mar Winter Nutrition Plan",
+    "featuredProductId": "microzyme-crop-plus",
+    "productIds": [
+      "microzyme-crop-plus",
+      "fast-target",
+      "topferty-sugarcane",
+      "topferty-onion"
+    ],
+    "badge": "Active Jan-Mar (Winter Rabi) Advisory",
+    "advisoryText": "Cold stress protection: Apply Microzyme Crop+ Ascophyllum Seaweed granules to stimulate active feeder roots.",
+    "active": true
+  },
+  {
+    "campaignId": "apr-june",
+    "name": "Summer Zaid & Pre-Kharif Soil Rejuvenation Campaign",
+    "season": "APRIL_JUNE",
+    "startMonth": 4,
+    "endMonth": 6,
+    "headline": "Combat Summer Heat Stress & Prepare High-Carbon Basal Soil for Kharif",
+    "subheadline": "Organic Manure & Bio-stimulants engineered to restore degraded soil carbon, retain moisture, and protect summer crops.",
+    "description": "Prepare soil with high organic carbon manure before the onset of monsoon and nourish summer horticultural crops with bio-stimulants.",
+    "ctaText": "Claim Pre-Kharif Soil Rejuvenation Guide",
+    "featuredProductId": "topferty-banana-turmeric",
+    "productIds": [
+      "topferty-banana-turmeric",
+      "fast-target",
+      "microzyme-crop-plus",
+      "topferty-sugarcane"
+    ],
+    "badge": "Active Apr-June (Pre-Kharif) Advisory",
+    "advisoryText": "Pre-Kharif soil preparation: Apply organic manure to build soil organic carbon before monsoon planting.",
+    "active": true
+  }
+]

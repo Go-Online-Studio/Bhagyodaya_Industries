@@ -1,0 +1,290 @@
+[
+  {
+    "id": "topferty-cotton",
+    "name": "Topferty Cotton Special (कापूस स्पेशल)",
+    "slug": "topferty-cotton-special",
+    "category": "Organic Manure",
+    "image": "/image/topferty-cotton.jpeg",
+    "description": "Specialized Organic Manure formulated by Bhagyodaya Industries for Cotton crops (कापूस). Boosts soil organic carbon, promotes deep taproot anchorage, minimizes square & boll dropping, and maximizes lint yield & fiber quality.",
+    "benefits": [
+      "Promotes heavy branch tillering and boll retention in cotton",
+      "High organic carbon & humic active matter for moisture retention",
+      "Prevents square shedding and optimizes leaf photosynthetic index",
+      "100% Organic Manure certified under FCO norms"
+    ],
+    "composition": "Organic Carbon > 14%, Total NPK (Organic), Bio-active Compost Carrier, Moisture Max 25%",
+    "targetCrops": ["Cotton (कापूस)"],
+    "dosage": "Basal / Top Dressing: 50 kg to 100 kg / Acre during vegetative & pre-flowering stages",
+    "packagingSizes": ["50.00 Kg HDPE Bag"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "COTTON_SPECIAL_ENQ",
+      "customEventName": "ViewTopfertyCotton"
+    }
+  },
+  {
+    "id": "a1-myco",
+    "name": "A1 MYCO (Granular) Mycorrhizal Biofertiliser",
+    "slug": "a1-myco-granular",
+    "category": "Mycorrhizal Biofertilizer",
+    "image": "/image/a1-myco.png",
+    "description": "Granular Mycorrhizal Biofertiliser (मायकोरिजल जैव उर्वरक) by Bhagyodaya Industries. Multiplies feeder root surface area, mobilizes locked soil phosphorus & micronutrients, and enhances drought resilience.",
+    "benefits": [
+      "Extensive mycorrhizal fungal network for deep root branching",
+      "Mobilizes insoluble phosphorus, zinc, and micronutrients",
+      "Significantly enhances soil moisture and drought tolerance",
+      "Eco-friendly bio-fertilizer for all field and horticultural crops"
+    ],
+    "composition": "Mycorrhizal Inoculum with Organic Granular Bio-carrier",
+    "targetCrops": ["Cotton", "Soyabean", "Paddy", "Sugarcane", "Onion", "Horticulture"],
+    "dosage": "Soil Application: 4 kg / Acre at sowing or basal root zone application",
+    "packagingSizes": ["4.00 Kg Handle Bag"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec", "jan-mar", "apr-june"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "A1_MYCO_ENQ",
+      "customEventName": "ViewA1Myco"
+    }
+  },
+  {
+    "id": "hum-up",
+    "name": "HUM UP Potassium Humate (99% Solubility)",
+    "slug": "hum-up-potassium-humate",
+    "category": "Potassium Humate Bio-Stimulant",
+    "image": "/image/hum-up.png",
+    "description": "Ultra-pure 99% Soluble Potassium Humate by Bhagyodaya Industries. Stimulates rapid white root development, enhances cation exchange capacity, and improves fertilizer uptake efficiency.",
+    "benefits": [
+      "99% high water solubility ideal for drip fertigation and foliar spray",
+      "Rapidly triggers active white feeder root proliferation",
+      "Improves soil physical texture, aeration, and nutrient retention",
+      "Enhances plant chlorophyll synthesis and overall crop vigor"
+    ],
+    "composition": "Potassium Humate (99% Water Soluble active humic fractions)",
+    "targetCrops": ["Cotton", "Soyabean", "Banana", "Turmeric", "Sugarcane", "Vegetables"],
+    "dosage": "Drip/Soil: 1 kg to 2 kg / Acre | Foliar: 1g to 1.5g per Liter of water",
+    "packagingSizes": ["1.00 Kg Pouch"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec", "jan-mar", "apr-june"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "HUM_UP_ENQ",
+      "customEventName": "ViewHumUp"
+    }
+  },
+  {
+    "id": "nutriesol",
+    "name": "Nutriesol Mix Micronutrient Fertilizer (Grade No - 2)",
+    "slug": "nutriesol-mix-micronutrient-df",
+    "category": "Micronutrient Fertilizer",
+    "image": "/image/nutriesol.png",
+    "description": "Maharashtra Grade No – 2 Mix Micronutrient Fertilizer (Foliar Spray & Drip Fertilizer - DF) manufactured by Bhagyodaya Industries. Supplies balanced Fe, Mn, Zn, Cu, Mo, and B to prevent chlorosis and boost yield quality.",
+    "benefits": [
+      "Balanced 6-in-1 formulation: Fe (2.5%), Mn (1.0%), Zn (3.0%), Cu (1.0%), Mo (0.1%), B (0.5%)",
+      "Corrects hidden micronutrient deficiencies rapidly within short time",
+      "Boosts plant immunity, flowering retention, and uniform fruit bulking",
+      "100% water-soluble formulation suitable for foliar spray and drip"
+    ],
+    "composition": "Iron (Fe) 2.50%, Manganese (Mn) 1.00%, Zinc (Zn) 3.00%, Copper (Cu) 1.00%, Molybdenum (Mo) 0.10%, Boron (B) 0.50%",
+    "targetCrops": ["Cotton", "Soyabean", "Paddy", "Sugarcane", "Banana", "Turmeric", "Vegetables"],
+    "dosage": "Foliar Spray / Drip: Dissolve 1.5 g Nutriesol in 1 Litre of clean water",
+    "packagingSizes": ["1.00 Kg Pack"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec", "jan-mar", "apr-june"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "NUTRIESOL_ENQ",
+      "customEventName": "ViewNutriesol"
+    }
+  },
+  {
+    "id": "fast-target-liquid",
+    "name": "Fast Target Six in One Bio Stimulant (Liquid 5L)",
+    "slug": "fast-target-liquid-5l",
+    "category": "Liquid Bio-Stimulant",
+    "image": "/image/fast-target-5l.png",
+    "description": "FCO Registered Six-in-One Bio Stimulant liquid for foliar application. Potent mixture of Seaweed extract, Humic & Fulvic acid, Amino acids, Vitamin C, Glycine, and Organic Carbon.",
+    "benefits": [
+      "Synergistic 6-in-1 formulation for maximum foliar absorption",
+      "Promotes vegetative surge, branching, and heavy flower setting",
+      "Mitigates climate stress, moisture deficit, and temperature fluctuations",
+      "FCO Registered govt. compliant formulation by Bhagyodaya Industries"
+    ],
+    "composition": "Seaweed Extract, Humic & Fulvic Acid, Amino Acids & Vitamins, Vitamin C, Glycine, Organic Carbon",
+    "targetCrops": ["Cotton", "Soyabean", "Paddy", "Sugarcane", "Chili", "Vegetables", "Orchards"],
+    "dosage": "Foliar Application: 2 ml to 2.5 ml per Liter of water (500 ml / Acre)",
+    "packagingSizes": ["5.00 Liter Can", "1.00 Liter Bottle", "500 ml Bottle"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec", "jan-mar", "apr-june"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "FAST_TARGET_LIQUID_ENQ",
+      "customEventName": "ViewFastTargetLiquid"
+    }
+  },
+  {
+    "id": "topferty-soyabean",
+    "name": "Topferty Soyabean Special (सोयाबीन स्पेशल)",
+    "slug": "topferty-soyabean-special",
+    "category": "Organic Manure",
+    "image": "/image/topferty-soyabean.jpeg",
+    "description": "Targeted organic fertilizer for Soybean crops (सोयाबीन). Promotes heavy nodulation, vigorous early vegetative growth, pod filling, and higher oil and protein content in seeds.",
+    "benefits": [
+      "Enhances nitrogen-fixing root nodule formation",
+      "Improves pod development and seed test weight",
+      "Increases drought resistance and moisture holding capacity",
+      "ISO 9001:2015 certified organic manure formulation"
+    ],
+    "composition": "Enriched Organic Manure with Bio-active Humates & Essential Micro-elements",
+    "targetCrops": ["Soyabean (सोयाबीन)", "Pulses & Legumes"],
+    "dosage": "Soil application: 50 kg / Acre at sowing or early vegetative stage",
+    "packagingSizes": ["50.00 Kg HDPE Bag"],
+    "active": true,
+    "campaignIds": ["jul-sept"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "SOYABEAN_SPECIAL_ENQ",
+      "customEventName": "ViewTopfertySoyabean"
+    }
+  },
+  {
+    "id": "topferty-paddy",
+    "name": "Topferty Paddy Special (भात स्पेशल)",
+    "slug": "topferty-paddy-special",
+    "category": "Organic Manure",
+    "image": "/image/topferty-paddy.jpeg",
+    "description": "Specialized Organic Manure for Paddy & Rice (भात). Engineered for submerged and puddled soil conditions to prevent nutrient loss, stimulate profuse tillering, and produce bold, filled grains.",
+    "benefits": [
+      "Triggers maximum tillers per hill in paddy fields",
+      "Reduces nutrient leaching in flooded wetland soils",
+      "Prevents premature lodging through strong root grip",
+      "Improves grain luster, density, and panicle weight"
+    ],
+    "composition": "Humified Organic Matter, Nitrogen & Phosphorus fixing carriers, Trace minerals",
+    "targetCrops": ["Paddy / Rice (भात)"],
+    "dosage": "50 kg to 100 kg / Acre during puddling/transplanting and panicle initiation",
+    "packagingSizes": ["50.00 Kg HDPE Bag"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "PADDY_SPECIAL_ENQ",
+      "customEventName": "ViewTopfertyPaddy"
+    }
+  },
+  {
+    "id": "topferty-banana-turmeric",
+    "name": "Topferty Banana & Turmeric Special (केळी - हळद)",
+    "slug": "topferty-banana-turmeric-special",
+    "category": "Organic Manure",
+    "image": "/image/topferty-banana-turmeric.jpeg",
+    "description": "Specialized high-potency Organic Manure formulated for Banana & Turmeric crops (केळी - हळद). Accelerates rhizome development in turmeric and uniform bunch development & finger sizing in banana.",
+    "benefits": [
+      "Accelerates bulky rhizome growth and curcumin percentage in turmeric",
+      "Enhances banana pseudostem girth, bunch weight, and hands count",
+      "Maintains optimum soil pH and beneficial rhizospheric microbes",
+      "Reduces transplant shock and root nematodes vulnerability"
+    ],
+    "composition": "Organic Carbon, Potassium-rich organic biomass, Humic acids, Bio-enrichers",
+    "targetCrops": ["Banana (केळी)", "Turmeric (हळद)", "Ginger (आले)"],
+    "dosage": "50 kg - 100 kg / Acre in split applications during root development and bulking",
+    "packagingSizes": ["50.00 Kg HDPE Bag"],
+    "active": true,
+    "campaignIds": ["jul-sept", "apr-june"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "BANANA_TURMERIC_ENQ",
+      "customEventName": "ViewTopfertyBananaTurmeric"
+    }
+  },
+  {
+    "id": "topferty-sugarcane",
+    "name": "Topferty Sugarcane Special (ऊस स्पेशल)",
+    "slug": "topferty-sugarcane-special",
+    "category": "Organic Manure",
+    "image": "/image/topferty-sugarcane.jpeg",
+    "description": "Specialized Organic Manure for Sugarcane (ऊस). Stimulates deep rooting, heavy tillering (shoots), thick cane internode formation, and maximizes sucrose sugar content.",
+    "benefits": [
+      "Boosts millable cane stalks and tillering per clump",
+      "Improves cane thickness, internode length, and sugar recovery (Brix)",
+      "Retains moisture during long sugarcane crop cycles",
+      "Excellent for both planted cane and ratoon crop management"
+    ],
+    "composition": "Enriched Organic Matrix, Organic Nitrogen, Phosphorus, Potassium & Humic fractions",
+    "targetCrops": ["Sugarcane (ऊस)"],
+    "dosage": "100 kg / Acre at planting / earthing up stage",
+    "packagingSizes": ["50.00 Kg HDPE Bag"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec", "jan-mar"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "SUGARCANE_SPECIAL_ENQ",
+      "customEventName": "ViewTopfertySugarcane"
+    }
+  },
+  {
+    "id": "fast-target",
+    "name": "Fast Target Bio-Stimulant Granule",
+    "slug": "fast-target-bio-stimulant",
+    "category": "Bio-Stimulant Granule",
+    "image": "/image/fast-target.jpeg",
+    "description": "FCO Registered advanced Bio-stimulant granule with Seaweed extract, Protein Hydrolysate (amino acids), and high-grade Humic acid. Triggers extreme root growth, stress tolerance, and heavy yield response across all cash crops.",
+    "benefits": [
+      "Contains Alginic acid, Fucoidan, and free Amino acids (0.5% min)",
+      "Rapidly activates dormant feeder roots within 48-72 hours",
+      "FCO Registered 1985 certified bio-stimulant standard",
+      "Unlocks locked soil micro and macro nutrients"
+    ],
+    "composition": "Seaweed Extract (Alginic acid >= 0.02%, Fucoidan >= 0.02%), Free Amino Acids >= 0.5%, Total Amino Acids >= 0.6%, Humic Acid & Organic Carbon >= 1%",
+    "targetCrops": ["Onion", "Paddy", "Potato", "Cotton", "Vegetables & Fruits"],
+    "dosage": "Soil application: 5 kg to 10 kg / Acre at vegetative & flowering stages",
+    "packagingSizes": ["5.00 Kg Handle Pouch"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec", "jan-mar", "apr-june"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "FAST_TARGET_ENQ",
+      "customEventName": "ViewFastTarget"
+    }
+  },
+  {
+    "id": "microzyme-crop-plus",
+    "name": "Microzyme Crop+ (Seaweed Extract 2% Granule)",
+    "slug": "microzyme-crop-plus",
+    "category": "Bio-Stimulant Granule",
+    "image": "/image/microzyme-crop-plus.jpeg",
+    "description": "FCO Registered pure Ascophyllum nodosum Seaweed extract granule (2%). Delivers natural plant growth hormones to stimulate white root development, disease resistance, and peak crop yields.",
+    "benefits": [
+      "100% natural cold-water Ascophyllum nodosum marine algae formulation",
+      "Triggers profuse white feeder root generation and nutrient uptake",
+      "Alginic acid per cent by weight min 0.006%, Total organic carbon min 1.4%",
+      "Improves crop greening, tillering, and abiotic climate shock resilience"
+    ],
+    "composition": "Seaweed (Ascophyllum nodosum) Extract 2% (Granule), Alginic Acid, Organic Carbon >= 1.4%, pH 7.0 - 9.0",
+    "targetCrops": ["Rice / Paddy", "Wheat", "Sugarcane", "Cotton", "Horticulture"],
+    "dosage": "10 kg / Acre in two split soil applications",
+    "packagingSizes": ["10.00 Kg Premium Handle Bag"],
+    "active": true,
+    "campaignIds": ["jul-sept", "oct-dec", "jan-mar", "apr-june"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "MICROZYME_CROP_ENQ",
+      "customEventName": "ViewMicrozymeCrop"
+    }
+  },
+  {
+    "id": "topferty-onion",
+    "name": "Topferty Onion Special (कांदा स्पेशल)",
+    "slug": "topferty-onion-special",
+    "category": "Organic Manure",
+    "image": "/image/topferty-onion.jpeg",
+    "description": "Specialized Organic Manure formulated for Onion crops (कांदा). Promotes large bulb size, uniform color, thick outer skin layers, and long shelf life in storage.",
+    "benefits": [
+      "Promotes uniform bulb expansion and prevents splitting",
+      "Increases storage shelf life and reduces rotting losses",
+      "Enriches soil with vital organic nutrients for allium crops",
+      "Improves pungency, firmness, and market grade value"
+    ],
+    "composition": "Specialized Organic Carbon, Sulfur & Potassium rich organic humus matrix",
+    "targetCrops": ["Onion (कांदा)", "Garlic (लसूण)"],
+    "dosage": "50 kg to 100 kg / Acre at transplanting and bulb formation stage",
+    "packagingSizes": ["50.00 Kg HDPE Bag"],
+    "active": true,
+    "campaignIds": ["oct-dec", "jul-sept", "jan-mar"],
+    "trackingConfig": {
+      "googleAdsConversionLabel": "ONION_SPECIAL_ENQ",
+      "customEventName": "ViewTopfertyOnion"
+    }
+  }
+]
